@@ -49,12 +49,13 @@ with open(csvpath, 'r') as csvfile:
         if (total_months == 1):
             previous_month_PL = current_month_PL
             continue
-        else:
+        else: #track changes in profit loss and append to profit loss list and month list
             PL_change = current_month_PL - previous_month_PL
             months.append(row[0])
             PL_changes.append(PL_change)
+            #update previous month to current month
             previous_month_PL = current_month_PL
-    
+    # sum/avg changes
     sum_PL = sum(PL_changes)
     avg_PL_change = sum_PL / (total_months - 1)
     
