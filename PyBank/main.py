@@ -18,6 +18,8 @@ import csv
 
 # Variables
 total_months = 0
+net_total = 0
+current_month_PL = 0
 
 csvpath = os.path.join("/Users/jennabarkley/Desktop/Challenges/Python-Challenge/PyBank/Resources/budget_data.csv")
 
@@ -27,11 +29,19 @@ with open(csvpath, 'r') as csvfile:
     # print(csvreader)
     # Save the header, and read the header row first
     csv_header = next(csvreader)
-    # print(f"CSV Header: {csv_header}") if needed
+    print(f"CSV Header: {csv_header}") #if needed
 
 # Read each row of data after the header
     for row in csvreader:
+        # print(row)
 
     # Step 2: The total number of months included in the dataset
         total_months+= 1
-        print(f"Total Months:  {total_months}")
+        # print(f"Total Months:  {total_months}")
+    
+    # Step 3: The net total amount of "Profit/Losses" over the entire period
+        current_month_PL = int(row[1])
+        net_total += current_month_PL
+        # print(net_total)
+            
+
