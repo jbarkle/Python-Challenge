@@ -70,3 +70,26 @@ with open(csvpath, 'r') as csvfile:
     GI_month = months[increase_month]
     GD_month = months[decrease_month]
 
+# Step 7: Print an analysis to terminal
+print("Financial Analysis")
+print("---------------------------------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total: ${net_total}")
+print(f"Average Change: ${int((100*avg_PL_change-0.5)) / 100}")
+print(f"Greatest Increase in Profits: {GI_month} (${greatest_increase})")
+print(f"Greatest Decrease in Losses: {GD_month} (${greatest_decrease})")
+
+# Step 8: Save as a txt file
+# specify the file to write to
+output_file = os.path.join("/Users/jennabarkley/Desktop/Challenges/Python-Challenge/PyBank/Analysis/financial_analysis.txt")
+
+# open file using write mode, specify variable to hold contents
+with open(output_file, 'w') as text:
+    # write contents, don't forget to end each line with \n
+    text.write("Financial Analysis\n")
+    text.write("---------------------------------------------------\n")
+    text.write(f"Total Months: {total_months}\n")
+    text.write(f"Total: ${net_total}\n")
+    text.write(f"Average Change: ${int((100*avg_PL_change-0.5)) / 100}\n")
+    text.write(f"Greatest Increase in Profits: {GI_month} (${greatest_increase})\n")
+    text.write(f"Greatest Decrease in Losses: {GD_month} (${greatest_decrease})\n")
