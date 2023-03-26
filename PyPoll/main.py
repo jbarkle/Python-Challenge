@@ -61,3 +61,30 @@ with open(csvpath, 'r') as csvfile:
     # round to thousandths
     percent_vote = [round (i,3) for i in percent_vote]
     
+# Step 7: Print an analysis to terminal
+print("Election Results")
+print("-------------------------")
+print(f"Total Votes: {total_votes}")
+print("-------------------------")
+for count in range(len(candidates_list)):
+    print(f"{candidates_list[count]}: {percent_vote[count]}% ({votes_list[count]})")
+print("-------------------------")
+print(f"Winner: {election_winner}")
+print("-------------------------")
+
+# Step 8: Save as a txt file
+# specify the file to write to
+output_file = os.path.join("/Users/jennabarkley/Desktop/Challenges/Python-Challenge/PyPoll/Analysis/election_analysis.txt")
+
+# # open file using write mode, specify variable to hold contents
+with open(output_file, 'w') as text:
+# write contents, don't forget to end each line with \n
+    text.write("Election Results\n")
+    text.write("-------------------------\n")
+    text.write(f"Total Votes: {total_votes}\n")
+    text.write("-------------------------\n")
+    for count in range(len(candidates_list)):
+        text.write(f"{candidates_list[count]}: {percent_vote[count]}% ({votes_list[count]})\n")
+    text.write("-------------------------\n")
+    text.write(f"Winner: {election_winner}\n")
+    text.write("-------------------------\n")
