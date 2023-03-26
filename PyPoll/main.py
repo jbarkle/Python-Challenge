@@ -15,6 +15,7 @@ total_votes = 0
 current_candidate = 0
 candidates_list = []
 votes_list = []
+percent_vote = []
 
 csvpath = os.path.join("/Users/jennabarkley/Desktop/BootCamp Stuff/Module 3 Challenge/PyPoll/Resources/election_data.csv")
 
@@ -43,4 +44,20 @@ with open(csvpath, 'r') as csvfile:
             candidates_list.append(current_candidate)
             votes_list.append(1)
 
+    # Step 4: The percentage of votes each candidate won
+    # variables for popular votes
+    pop_vote = votes_list[0]
+    pop_vote_index = 0
+    # use len on candidate list then count total votes
+    for count in range(len(candidates_list)):
+        # convert to percent
+        percentage = votes_list[count]/total_votes*100
+        #keep a list of percentages
+        percent_vote.append(percentage)
+        # define winner vote count
+        if votes_list[count] > pop_vote:
+            pop_vote_index = count
+    election_winner = candidates_list[pop_vote_index]
+    # round to thousandths
+    percent_vote = [round (i,3) for i in percent_vote]
     
