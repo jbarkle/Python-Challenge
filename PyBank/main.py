@@ -59,3 +59,14 @@ with open(csvpath, 'r') as csvfile:
     sum_PL = sum(PL_changes)
     avg_PL_change = sum_PL / (total_months - 1)
     
+    # Step 5 & 6: The greatest increase & decrease in profits (date and amount) over the entire period
+    # find the greatest increase/decrease in the list using max/min
+    greatest_increase = max(PL_changes)
+    greatest_decrease = min(PL_changes)
+    # find the indices of increase/decrease in the list
+    increase_month = PL_changes.index(greatest_increase)
+    decrease_month = PL_changes.index(greatest_decrease)
+    # store the month values to retrieve with greatest increase/decrease
+    GI_month = months[increase_month]
+    GD_month = months[decrease_month]
+
