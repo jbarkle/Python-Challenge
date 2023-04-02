@@ -17,7 +17,7 @@ candidates_list = []
 votes_list = []
 percent_vote = []
 
-csvpath = os.path.join("/Users/jennabarkley/Desktop/BootCamp Stuff/Module 3 Challenge/PyPoll/Resources/election_data.csv")
+csvpath = os.path.join("Resources/election_data.csv")
 
 with open(csvpath, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')

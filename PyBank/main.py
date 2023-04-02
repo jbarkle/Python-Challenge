@@ -24,7 +24,7 @@ current_month_PL = 0
 months = []
 PL_changes = []
 
-csvpath = os.path.join("/Users/jennabarkley/Desktop/Challenges/Python-Challenge/PyBank/Resources/budget_data.csv")
+csvpath = os.path.join("Resources/budget_data.csv")
 
 with open(csvpath, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
